@@ -34,6 +34,20 @@ require_once('sheep_top_login.php');
 
               <?php  endif; ?>
 
+             <?php 
+              $senhaInvalida = filter_input(INPUT_GET, 'senha_errada', FILTER_VALIDATE_BOOLEAN);
+              if($senhaInvalida): 
+             ?>
+                  <div class="alert alert-danger alert-has-icon" style="margin:3px auto;">
+                  <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
+                  <div class="alert-body">
+                    <div class="alert-title">Olá Cliente!</div>
+                    A senha, ou, e-mail não existe no sistema!
+                  </div>
+                </div>
+
+              <?php  endif; ?>
+
           <!--
 
                   <div class="alert alert-danger alert-has-icon" style="margin:3px auto;">
@@ -68,16 +82,6 @@ require_once('sheep_top_login.php');
                   </div>
                 </div>
 
-             
-                <div class="alert alert-danger alert-has-icon" style="margin:3px auto;">
-                  <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
-                  <div class="alert-body">
-                    <div class="alert-title">Olá Cliente!</div>
-                    A senha, ou, e-mail não existe no sistema!
-                  </div>
-                </div>
-
-             
 
              
                 <div class="alert alert-success alert-has-icon" style="margin:3px auto;">
@@ -141,4 +145,4 @@ require_once('sheep_top_login.php');
 
 
                 <?php require_once('sheep_rodape_login.php'); ?>
-                
+                <!-- auth-login.html  21 Nov 2019 03:49:32 GMT -->
