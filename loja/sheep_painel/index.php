@@ -20,6 +20,20 @@ require_once('sheep_top_login.php');
 
               </div>
 
+             <?php 
+              $camposVazios = filter_input(INPUT_GET, 'campos_vazios', FILTER_VALIDATE_BOOLEAN);
+              if($camposVazios): 
+             ?>
+              <div class="alert alert-warning alert-has-icon" style="margin:3px auto;">
+                  <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
+                  <div class="alert-body">
+                    <div class="alert-title">Prezado Cliente</div>
+                    Por gentileza, preencha todos os campos!
+                  </div>
+                </div>
+
+              <?php  endif; ?>
+
           <!--
 
                   <div class="alert alert-danger alert-has-icon" style="margin:3px auto;">
@@ -76,13 +90,7 @@ require_once('sheep_top_login.php');
 
              
 
-                <div class="alert alert-warning alert-has-icon" style="margin:3px auto;">
-                  <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
-                  <div class="alert-body">
-                    <div class="alert-title">Prezado Cliente</div>
-                    Por gentileza, preencha todos os campos!
-                  </div>
-                </div>
+                
 
               
                 <div class="alert alert-danger alert-has-icon" style="margin:3px auto;">
@@ -133,4 +141,4 @@ require_once('sheep_top_login.php');
 
 
                 <?php require_once('sheep_rodape_login.php'); ?>
-                <!-- auth-login.html  21 Nov 2019 03:49:32 GMT -->
+                
