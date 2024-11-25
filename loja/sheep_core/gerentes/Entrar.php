@@ -6,6 +6,7 @@ class Entrar
     private string $email;
     private string $senha;
     private ?array $resultado = null;// pode restor o valor null
+    private const BD = 'usuarios';
 
     public function acessarPainel(string $email, string $senha): ?array
     {
@@ -30,7 +31,16 @@ class Entrar
 
     
 
+    private function verificaUsuario(): ?array
+    {
+        $ler = new Ler();
+        $ler->Leitura(self::BD, "WHERE email = :email", "email={$this->email}");
+        if($ler->getResultado() && password_verify($this->senha, $ler->getResultado()[0]['senha'])){
+            return $this->resultado =  $ler->getResultado()[0];
+        }
 
+        return null;
+    }
 
 
 
